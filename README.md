@@ -44,7 +44,7 @@ Our key technical innovations include:
 VisionSelector is highly efficient, requiring only 12.85M trainable parameters. It achieves substantial performance-efficiency advancements: a 12.02% performance gain at 10% token retention, and a **1.73× prefill acceleration** (with 86.08% memory reduction) at 20% retention. VisionSelector consistently outperforms state-of-the-art baselines across 13 image and video understanding benchmarks.
 
 <div align="center">
-  <img src="docs/framework.png" alt="Our approach" width="50%">
+  <img src="docs/framework.png" alt="Our approach" width="70%">
 </div>
 
 # 💾 Dataset Preparation and Configuration
