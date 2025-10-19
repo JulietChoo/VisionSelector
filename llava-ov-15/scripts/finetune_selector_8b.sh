@@ -14,7 +14,7 @@ GRAD_ACCUM_STEPS=$((GLOBAL_BATCH_SIZE / (BATCH_PER_DEVICE * NUM_DEVICES)))
 
 export PYTHONPATH=src:$PYTHONPATH
 
-training_data="../datasets/textvqa_coco4per_ocrvqa_cambrian.jsonl"
+training_data="../datasets/textvqa_ocrvqa_cambrian.jsonl"
 output_dir="../output_ckpt/VisionSelector-LLaVA-OV-1.5-8B"
 
 
@@ -36,7 +36,7 @@ deepspeed src/train/train_sft_visionselector.py \
     --num_train_epochs 1 \
     --budgets 0.2 \
     --reg_weight_start 0.1 \
-    --reg_weight_end 2.0 \
+    --reg_weight_end 3.0 \
     --per_device_train_batch_size $BATCH_PER_DEVICE \
     --gradient_accumulation_steps $GRAD_ACCUM_STEPS \
     --image_min_pixels $((20 * 28 * 28)) \

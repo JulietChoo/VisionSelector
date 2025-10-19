@@ -3,12 +3,10 @@
 VisionSelector: End-to-End Learnable Visual Token Compression for Efficient Multimodal LLMs
 </h1>
 
-
 <p align="center">
   📄  <a href=""><strong>Paper</strong></a> |  
   🤗 <a href=""><strong>Checkpoint</strong></a>
 </p>
-
 
 <p align="center">
     <a href="">Jiaying Zhu<sup>1</sup></a>, 
@@ -25,12 +23,14 @@ VisionSelector: End-to-End Learnable Visual Token Compression for Efficient Mult
 <p align="center">*Equal Advising</p>
 
 # 📝 To do list
-- [x] Release training code
-- [x] Release evaluation code
-- [x] Release comparison method code
+
+- [X] Release training code
+- [X] Release evaluation code
+- [X] Release comparison method code
 - [ ] Release model weights
 
------
+---
+
 # 👀 Overview
 
 We introduce **VisionSelector**, a novel, **end-to-end learnable framework** that fundamentally re-casts visual token compression as an optimization-driven decision process. VisionSelector seamlessly integrates into existing MLLMs without modifying the backbone, achieving adaptive and superior efficiency.
@@ -52,20 +52,22 @@ VisionSelector is highly efficient, requiring only 12.85M trainable parameters. 
 To reproduce our results and train the VisionSelector module, you need to download and configure the following datasets from the `nyu-visionx/Cambrian-10M` repository.
 
 ## 1\. Dataset Downloading
+
 Please download the following datasets and annotations and place them under the `datasets/` folder.
 
-| Dataset | Size | Download Link (Hugging Face) |
-| :--- | :--- | :--- |
-| **OCR_VQA** | $\sim 80\text{K}$ | [ocr_vqa.tar.gz](https://huggingface.co/datasets/nyu-visionx/Cambrian-10M/resolve/main/ocr_vqa.tar.gz?download=true) |
-| **ChartQA** | $\sim 28\text{K}$ | [chartqa.tar.gz](https://huggingface.co/datasets/nyu-visionx/Cambrian-10M/resolve/main/chartqa.tar.gz?download=true) |
-| **TextQA** | $\sim 21\text{K}$ | [textvqa.tar.gz](https://huggingface.co/datasets/nyu-visionx/Cambrian-10M/resolve/main/textvqa.tar.gz?download=true) |
-| **COCO** | $\sim 364\text{K}$ | [coco.tar.gz](https://huggingface.co/datasets/nyu-visionx/Cambrian-10M/resolve/main/coco.tar.gz?download=true) |
+| Dataset           | Size                 | Download Link (Hugging Face)                                                                                      |
+| :---------------- | :------------------- | :---------------------------------------------------------------------------------------------------------------- |
+| **OCR_VQA** | $\sim 80\text{K}$  | [ocr_vqa.tar.gz](https://huggingface.co/datasets/nyu-visionx/Cambrian-10M/resolve/main/ocr_vqa.tar.gz?download=true) |
+| **ChartQA** | $\sim 28\text{K}$  | [chartqa.tar.gz](https://huggingface.co/datasets/nyu-visionx/Cambrian-10M/resolve/main/chartqa.tar.gz?download=true) |
+| **TextQA**  | $\sim 21\text{K}$  | [textvqa.tar.gz](https://huggingface.co/datasets/nyu-visionx/Cambrian-10M/resolve/main/textvqa.tar.gz?download=true) |
+| **COCO**    | $\sim 364\text{K}$ | [coco.tar.gz](https://huggingface.co/datasets/nyu-visionx/Cambrian-10M/resolve/main/coco.tar.gz?download=true)       |
 
-| Annotation | Download Link (Hugging Face) |
-| :--- | :--- |
+| Annotation             | Download Link (Hugging Face)                                                                                                    |
+| :--------------------- | :------------------------------------------------------------------------------------------------------------------------------ |
 | **Cambrian737K** | [Cambrian737k.jsonl](https://huggingface.co/datasets/nyu-visionx/Cambrian-10M/resolve/main/jsons/Cambrian737k.jsonl?download=true) |
 
 ### Generating Dataset Annotations:
+
 The large annotation file (`Cambrian737k.jsonl`) needs to be split into individual JSONL files for each target dataset (OCR_VQA, ChartQA, COCO) to match the required directory structure.
 
 Execute the following commands from the project root to perform this filtering and splitting using the `filter_json.py` script:
@@ -76,9 +78,10 @@ python datasets/filter_json.py
 python datasets/sample_merge_json_llavaov.py # for llava-ov-1.5
 ```
 
-
 ### Required Directory Structure:
+
 After downloading and extracting, your project directory should contain the following structure:
+
 ```python
 VisionSelector/
 └── datasets/
@@ -90,10 +93,11 @@ VisionSelector/
     ├── textvqa_cambrian.jsonl
     ├── coco/
     ├── coco_cambrian.jsonl
-    └── textvqa_coco4per_ocrvqa_cambrian.jsonl
+    └── textvqa_ocrvqa_cambrian.jsonl
 ```
 
 ## 2\. Dataset config for training
+
 The data paths and annotation paths for training are defined in `VisionSelector/qwen-vl-finetune/qwenvl/data/__init__.py`.
 
 ```python
@@ -129,18 +133,18 @@ pip install transformers==4.50.0
 
 For optimal compatibility, we recommend the following package versions:
 
-| Package | Recommended Version |
-| :--- | :--- |
-| `torch` | `2.6.0` |
-| `torchvision` | `0.21.0` |
-| `transformers` | `4.50.0` |
-| `deepspeed` | `0.16.4` |
-| `flash_attn` | `2.7.4.post1` |
-| `triton` | `3.2.0` |
-| `accelerate` | `1.4.0` |
-| `torchcodec` | `0.2` |
+| Package          | Recommended Version |
+| :--------------- | :------------------ |
+| `torch`        | `2.6.0`           |
+| `torchvision`  | `0.21.0`          |
+| `transformers` | `4.50.0`          |
+| `deepspeed`    | `0.16.4`          |
+| `flash_attn`   | `2.7.4.post1`     |
+| `triton`       | `3.2.0`           |
+| `accelerate`   | `1.4.0`           |
+| `torchcodec`   | `0.2`             |
 
------
+---
 
 # 🚀 Quick Start - Qwen2.5VL
 
@@ -173,11 +177,11 @@ cd ../qwen-evaluation
 
 Use the provided scripts to evaluate VisionSelector against comparison methods and generate visualizations.
 
-| Command | Purpose |
-| :--- | :--- |
+| Command                           | Purpose                                                                |
+| :-------------------------------- | :--------------------------------------------------------------------- |
 | `bash run_token_compression.sh` | Evaluation for Original Model and Comparison Token Compression Methods |
-| `bash run_selector.sh` | Evaluation for the **VisionSelector** Method |
-| `bash run_dynamic_qwen.sh` | Evaluation for the Dynamic-Qwen Method |
+| `bash run_selector.sh`          | Evaluation for the**VisionSelector** Method                      |
+| `bash run_dynamic_qwen.sh`      | Evaluation for the Dynamic-Qwen Method                                 |
 
 To capture `Max GPU Memory`, `Prefill Time`, `Latency Time` and `Number of visual tokens`, set the following environment variable before running the evaluation script:
 
@@ -193,10 +197,9 @@ To generate activation heatmaps and token pruning visualizations:
 bash run_visual.sh
 ```
 
------
+---
 
 # 🔧 Installation - LLaVA-OV-1.5
-
 
 ## 1\. Environment, Basic Dependencies and Package Installation
 
@@ -218,6 +221,7 @@ To train the VisionSelector (e.g., integrated with LLaVA-OneVision-1.5) to learn
 cd VisionSelector/llava-ov-15
 bash scripts/finetune_selector_8b.sh # for LLaVA-OneVision-1.5
 ```
+
 ## 2\. Evaluation
 
 ```bash
@@ -226,9 +230,8 @@ bash run_ov_token_compression.sh # for orignal model and comparison method
 bash run_ov_selector.sh # for VisionSelector
 ```
 
-
-
 # Acknowledgement
+
 This work is built upon the foundational contributions of several excellent open-source projects. We express our sincere gratitude to the developers of the following resources, which were instrumental in the development and evaluation of **VisionSelector**:
 
 - **Foundational Platforms:** [Qwen2.5-VL](https://github.com/QwenLM/Qwen3-VL/tree/main/qwen-vl-finetune), [LLaVA-OneVision-1.5](https://github.com/EvolvingLMMs-Lab/LLaVA-OneVision-1.5), [EffiVLM-Bench](https://github.com/EffiVLM-Bench/EffiVLM-Bench), and [Lmms-Eval](https://github.com/EvolvingLMMs-Lab/lmms-eval).
