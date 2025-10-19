@@ -194,7 +194,7 @@ EVAL_TIME=True
 To generate activation heatmaps and token pruning visualizations:
 
 ```bash
-bash run_visual.sh
+bash run_visual.sh # for VisionZip, DivPrune and VisionSelector
 ```
 
 ---
