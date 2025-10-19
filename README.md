@@ -41,7 +41,7 @@ Our key technical innovations include:
 * A **Curriculum Annealing Strategy** with a composite loss, which effectively bridges the performance gap between soft training selection and hard inference selection.
 * A **backbone-decoupled Learnable Importance Scorer (LIS)** that enables models, trained at a single compression rate, to **robustly generalize** to various compression budgets during inference.
 
-VisionSelector is highly efficient, requiring only 12.85M trainable parameters. It achieves substantial performance-efficiency advancements: a 12.02% performance gain at 10% token retention, and a **1.73× prefill acceleration** (with 86.08% memory reduction) at 20% retention. VisionSelector consistently outperforms state-of-the-art baselines across 13 image and video understanding benchmarks.
+VisionSelector is highly efficient, requiring only 12.85M trainable parameters. It achieves substantial performance-efficiency advancements: a 12.14% performance gain at 10% token retention, and a **1.73× prefill acceleration** (with 86.08% memory reduction) at 20% retention. VisionSelector consistently outperforms state-of-the-art baselines across 13 image and video understanding benchmarks.
 
 <div align="center">
   <img src="docs/framework.png" alt="Our approach" width="70%">
