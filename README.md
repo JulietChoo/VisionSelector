@@ -29,7 +29,7 @@ VisionSelector: End-to-End Learnable Visual Token Compression for Efficient Mult
 - [X] Release training code
 - [X] Release evaluation code
 - [X] Release comparison method code
-- [ ] Release model weights
+- [X] Release model weights
 
 ---
 
