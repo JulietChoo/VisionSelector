@@ -5,7 +5,9 @@ VisionSelector: End-to-End Learnable Visual Token Compression for Efficient Mult
 
 <p align="center">
   📄  <a href=""><strong>Paper</strong></a> |  
-  🤗 <a href=""><strong>Checkpoint</strong></a>
+  🤗 <a href="https://huggingface.co/JulietChoo/VisionSelector-Qwen2.5-VL-3B"><strong>VisionSelector-Qwen2.5-VL-3B</strong></a>
+  🤗 <a href="https://huggingface.co/JulietChoo/VisionSelector-Qwen2.5-VL-7B"><strong>VisionSelector-Qwen2.5-VL-7B</strong></a>
+  🤗 <a href="https://huggingface.co/JulietChoo/VisionSelector-LLaVA-OV-1.5-8B"><strong>VisionSelector-LLaVA-OV-1.5-8B</strong></a>
 </p>
 
 <p align="center">
