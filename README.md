@@ -182,7 +182,7 @@ Use the provided scripts to evaluate VisionSelector against comparison methods a
 | Command                           | Purpose                                                                |
 | :-------------------------------- | :--------------------------------------------------------------------- |
 | `bash run_token_compression.sh` | Evaluation for Original Model and Comparison Token Compression Methods |
-| `bash run_selector.sh`          | Evaluation for the**VisionSelector** Method                      |
+| `bash run_selector.sh`          | Evaluation for the **VisionSelector** Method                      |
 | `bash run_dynamic_qwen.sh`      | Evaluation for the Dynamic-Qwen Method                                 |
 
 To capture `Max GPU Memory`, `Prefill Time`, `Latency Time` and `Number of visual tokens`, set the following environment variable before running the evaluation script:
