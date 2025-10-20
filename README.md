@@ -30,6 +30,7 @@ VisionSelector: End-to-End Learnable Visual Token Compression for Efficient Mult
 - [X] Release evaluation code
 - [X] Release comparison method code
 - [X] Release model weights
+- [X] Release inference code
 
 ---
 
@@ -161,7 +162,7 @@ bash scripts/sft_3b.sh # for VisionSelector-Qwen2.5-VL-3B
 bash scripts/sft_dynamic.sh # Reimplementation of Dynamic-LLaVA's image predictor on Qwen2.5VL(Dynamic-Qwen)
 ```
 
-## 2\. Evaluation and Visualizations
+## 2\. Evaluation, Inference and Visualizations
 
 We utilize `lmms-eval` for comprehensive benchmarking.
 
@@ -189,6 +190,13 @@ To capture `Max GPU Memory`, `Prefill Time`, `Latency Time` and `Number of visua
 
 ```bash
 EVAL_TIME=True
+```
+### Run Inference
+
+You can test different token pruning methods (VisionZip, DivPrune) and VisionSelector inference with this script:
+
+```bash
+bash run_inference.sh
 ```
 
 ### Visualizations
@@ -230,6 +238,11 @@ bash scripts/finetune_selector_8b.sh # for LLaVA-OneVision-1.5
 cd llava-ov-15
 bash run_ov_token_compression.sh # for orignal model and comparison method
 bash run_ov_selector.sh # for VisionSelector
+```
+
+## 3\. Inference
+```bash
+bash run_ov_inference.sh
 ```
 
 # Acknowledgement
