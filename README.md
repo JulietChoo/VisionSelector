@@ -156,8 +156,8 @@ To train the VisionSelector (e.g., integrated with Qwen2.5-VL-7B) to learn cruci
 
 ```bash
 cd VisionSelector/qwen-vl-finetune
-bash scripts/sft_7b.sh # for Qwen2.5VL-7B
-bash scripts/sft_3b.sh # for Qwen2.5VL-3B
+bash scripts/sft_7b.sh # for VisionSelector-Qwen2.5-VL-7B
+bash scripts/sft_3b.sh # for VisionSelector-Qwen2.5-VL-3B
 bash scripts/sft_dynamic.sh # Reimplementation of Dynamic-LLaVA's image predictor on Qwen2.5VL(Dynamic-Qwen)
 ```
 
