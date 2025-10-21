@@ -4,7 +4,7 @@ VisionSelector: End-to-End Learnable Visual Token Compression for Efficient Mult
 </h1>
 
 <p align="center">
-  📄  <a href=""><strong>Paper</strong></a> |  
+  📄  <a href="http://arxiv.org/abs/2510.16598"><strong>Paper</strong></a> |  
   🤗 <a href="https://huggingface.co/JulietChoo/VisionSelector-Qwen2.5-VL-3B"><strong>VisionSelector-Qwen2.5-VL-3B</strong></a>
   🤗 <a href="https://huggingface.co/JulietChoo/VisionSelector-Qwen2.5-VL-7B"><strong>VisionSelector-Qwen2.5-VL-7B</strong></a>
   🤗 <a href="https://huggingface.co/JulietChoo/VisionSelector-LLaVA-OV-1.5-8B"><strong>VisionSelector-LLaVA-OV-1.5-8B</strong></a>
@@ -245,9 +245,24 @@ bash run_ov_selector.sh # for VisionSelector
 bash run_ov_inference.sh
 ```
 
+# Cititation
+If this work contributes to your research, please cite:
+```
+@misc{zhu2025visionselectorendtoendlearnablevisual,
+      title={VisionSelector: End-to-End Learnable Visual Token Compression for Efficient Multimodal LLMs}, 
+      author={Jiaying Zhu and Yurui Zhu and Xin Lu and Wenrui Yan and Dong Li and Kunlin Liu and Xueyang Fu and Zheng-Jun Zha},
+      year={2025},
+      eprint={2510.16598},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2510.16598}, 
+}
+```
 # Acknowledgement
 
 This work is built upon the foundational contributions of several excellent open-source projects. We express our sincere gratitude to the developers of the following resources, which were instrumental in the development and evaluation of **VisionSelector**:
 
 - **Foundational Platforms:** [Qwen2.5-VL](https://github.com/QwenLM/Qwen3-VL/tree/main/qwen-vl-finetune), [LLaVA-OneVision-1.5](https://github.com/EvolvingLMMs-Lab/LLaVA-OneVision-1.5), [EffiVLM-Bench](https://github.com/EffiVLM-Bench/EffiVLM-Bench), and [Lmms-Eval](https://github.com/EvolvingLMMs-Lab/lmms-eval).
 - **Inspirational Methods:** We also gratefully acknowledge the valuable insights and prior work provided by [FastV](https://github.com/pkunlp-icler/FastV), [PruMerge+](https://github.com/42Shawn/LLaVA-PruMerge), [VisionZip](https://github.com/dvlab-research/VisionZip), [DART](https://github.com/ZichenWen1/DART), [DivPrune](https://github.com/vbdi/divprune), [Dynamic-LLaVA](https://github.com/Osilly/dynamic_llava) and [Differentiable Top-K](https://math.stackexchange.com/q/4506773).
+
+
