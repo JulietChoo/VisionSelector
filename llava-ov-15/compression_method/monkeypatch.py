@@ -58,17 +58,17 @@ def replace_llavaov15(args, model, method):
                 module.budgets = getattr(args, 'budgets', 1.0)
                 module.origin = getattr(args, 'origin', False)
                 
-    # elif method == "dart":
-    #     print("using dart")
-    #     for name, module in model.named_modules():
-    #         if isinstance(module, LLaVAOneVision1_5_FlashAttention2):
-    #             module.forward = types.MethodType(llavaov15_flash_attention_forward_dart, module)
-    #         if isinstance(module, LLaVAOneVision1_5_DecoderLayer):
-    #             module.forward = types.MethodType(llavaov15_decoder_layer_forward_dart, module)
-    #         if isinstance(module, LLaVAOneVision1_5_TextModel):
-    #             module.forward = types.MethodType(llavaov15_language_model_forward_dart, module)
-    #             module.target_layer_idx = getattr(args, 'target_layer_idx', 2)
-    #             module.budgets = getattr(args, 'budgets', 1.0)
+    elif method == "dart":
+        print("using dart")
+        for name, module in model.named_modules():
+            if isinstance(module, LLaVAOneVision1_5_FlashAttention2):
+                module.forward = types.MethodType(llavaov15_flash_attention_forward_dart, module)
+            if isinstance(module, LLaVAOneVision1_5_DecoderLayer):
+                module.forward = types.MethodType(llavaov15_decoder_layer_forward_dart, module)
+            if isinstance(module, LLaVAOneVision1_5_TextModel):
+                module.forward = types.MethodType(llavaov15_language_model_forward_dart, module)
+                module.target_layer_idx = getattr(args, 'target_layer_idx', 2)
+                module.budgets = getattr(args, 'budgets', 1.0)
                 
             
                 

@@ -19,12 +19,12 @@ BASE_COMMAND="CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python3 -m accelerate.command
 
 # first for method name ; second for FILENAME ; third for additional args
 METHODS=(
-    # Qwen2-5-VL token compression method for example
+    # LLaVA-OneVision-1.5 token compression method for example
     "orig 8b attn_implementation="flash_attention_2",max_pixels=3240000"
     "fastv 8b target_layer_idx=2,attn_implementation="flash_attention_2",max_pixels=3240000"
     "visionzip 8b contextual_ratio=0.05,attn_implementation="flash_attention_2",max_pixels=3240000"
     "divprune 8b attn_implementation="flash_attention_2",max_pixels=3240000"
-    # "dart 8b attn_implementation="flash_attention_2",max_pixels=3240000"
+    "dart 8b attn_implementation="flash_attention_2",max_pixels=3240000"
 )
 
 # budgets
