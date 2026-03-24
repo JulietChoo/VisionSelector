@@ -5,7 +5,8 @@ from llavaonevision1_5.modeling_llavaonevision1_5 import (
     RiceFlashAttention2,
     RiceBlock,
     LLaVAOneVision1_5_FlashAttention2,
-    LLaVAOneVision1_5_TextModel
+    LLaVAOneVision1_5_TextModel,
+    LLaVAOneVision1_5_DecoderLayer
 )
 from .divprune import (
     llavaov15_vision_tower_forward_divprune,
@@ -21,6 +22,12 @@ from .fastv import (
     llavaov15_flash_attention_forward_fastv,
     llavaov15_language_model_forward_fastv
 )
+from .dart import (
+    llavaov15_flash_attention_forward_dart,
+    llavaov15_decoder_layer_forward_dart,
+    llavaov15_language_model_forward_dart
+)
+
 
 
 def replace_llavaov15(args, model, method):
@@ -39,7 +46,6 @@ def replace_llavaov15(args, model, method):
         RiceTransformerPretrainedModel.contextual_ratio = getattr(args, 'contextual_ratio', 0.05)
         LLaVAOneVision1_5_Model.forward = llavaov15_vlmodel_forward_visionzip
 
-
     elif method == "fastv":
         print("using fastv")
         for name, module in model.named_modules():
@@ -51,3 +57,18 @@ def replace_llavaov15(args, model, method):
                 module.target_layer_idx = getattr(args, 'target_layer_idx', 2)
                 module.budgets = getattr(args, 'budgets', 1.0)
                 module.origin = getattr(args, 'origin', False)
+                
+    elif method == "dart":
+        print("using dart")
+        for name, module in model.named_modules():
+            if isinstance(module, LLaVAOneVision1_5_FlashAttention2):
+                module.forward = types.MethodType(llavaov15_flash_attention_forward_dart, module)
+            if isinstance(module, LLaVAOneVision1_5_DecoderLayer):
+                module.forward = types.MethodType(llavaov15_decoder_layer_forward_dart, module)
+            if isinstance(module, LLaVAOneVision1_5_TextModel):
+                module.forward = types.MethodType(llavaov15_language_model_forward_dart, module)
+                module.target_layer_idx = getattr(args, 'target_layer_idx', 2)
+                module.budgets = getattr(args, 'budgets', 1.0)
+                
+            
+                

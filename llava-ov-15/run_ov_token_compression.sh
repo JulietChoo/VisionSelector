@@ -24,6 +24,7 @@ METHODS=(
     "fastv 8b target_layer_idx=2,attn_implementation="flash_attention_2",max_pixels=3240000"
     "visionzip 8b contextual_ratio=0.05,attn_implementation="flash_attention_2",max_pixels=3240000"
     "divprune 8b attn_implementation="flash_attention_2",max_pixels=3240000"
+    "dart 8b attn_implementation="flash_attention_2",max_pixels=3240000"
 )
 
 # budgets

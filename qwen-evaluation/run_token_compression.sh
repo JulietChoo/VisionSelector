@@ -26,6 +26,7 @@ METHODS=(
     "visionzip_official visionzip_official attn_implementation="flash_attention_2""
     "dart dart attn_implementation="flash_attention_2""
     "divprune divprune attn_implementation="flash_attention_2""
+    "holov flash_attn attn_implementation="flash_attention_2""
 )
 
 

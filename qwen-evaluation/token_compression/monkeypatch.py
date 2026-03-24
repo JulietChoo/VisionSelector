@@ -39,6 +39,14 @@ from .dart import (
     qwen25vl_model_forward_dart,
 )
 
+from .holov import (
+    qwen25vl_vision_flash_attention2_forward_holov,
+    qwen25vl_vision_sdpa_attention_forward_holov,
+    qwen25vl_vision_block_forward_holov,
+    qwen25vl_vision_tower_forward_holov,
+    qwen25vl_generation_forward_holov,
+)
+
 def replace_qwen25vl(args, model, method):
     if method == 'visionzip':
         print('using visionzip')
@@ -88,3 +96,12 @@ def replace_qwen25vl(args, model, method):
                 module.forward = types.MethodType(qwen25vl_model_forward_dart, module)
                 module.target_layer_idx = getattr(args, 'target_layer_idx', 2)
                 module.budgets = getattr(args, 'budgets', 1.0)
+                
+    elif method == 'holov':
+        print('using holov')
+        qwen25vl.modeling_qwen2_5_vl.Qwen2_5_VLVisionFlashAttention2.forward = qwen25vl_vision_flash_attention2_forward_holov
+        qwen25vl.modeling_qwen2_5_vl.Qwen2_5_VLVisionSdpaAttention.forward = qwen25vl_vision_sdpa_attention_forward_holov
+        qwen25vl.modeling_qwen2_5_vl.Qwen2_5_VLVisionBlock.forward = qwen25vl_vision_block_forward_holov
+        qwen25vl.modeling_qwen2_5_vl.Qwen2_5_VisionTransformerPretrainedModel.forward = qwen25vl_vision_tower_forward_holov
+        qwen25vl.modeling_qwen2_5_vl.Qwen2_5_VLForConditionalGeneration.forward = qwen25vl_generation_forward_holov
+        qwen25vl.modeling_qwen2_5_vl.Qwen2_5_VLForConditionalGeneration.budgets = getattr(args, 'budgets', 1.0)
