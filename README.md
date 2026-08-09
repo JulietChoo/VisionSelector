@@ -1,6 +1,6 @@
 <h1 align="center">
 <img src="docs/logo.png" alt="VisionSelector-Logo" width="40" height="40" style="vertical-align: middle; margin-top: -12px;">
-VisionSelector: End-to-End Learnable Visual Token Compression for Efficient Multimodal LLMs
+[ACM MM 2026] VisionSelector: End-to-End Learnable Visual Token Compression for Efficient Multimodal LLMs
 </h1>
 
 <p align="center">
@@ -23,6 +23,9 @@ VisionSelector: End-to-End Learnable Visual Token Compression for Efficient Mult
 </p>
 <p align="center"><sup>1</sup>University of Science and Technology of China, <sup>2</sup>ZTE Corporation</p>
 <p align="center">*Equal Advising</p>
+
+## 📰 News
+- **[2026-07-10]** 🎉 Our paper has been accepted by **ACM MM 2026**!
 
 # 📝 To do list
 
